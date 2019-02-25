@@ -7,25 +7,25 @@ order by frequency desc
 
 # result is
 
-Row	primary_type	frequency	
-1	Theft	54515	
-2	Theft: All Other Larceny	13539	
-3	Theft: BOV	10545	
-4	Burglary	10098	
-5	Auto Theft	6231	
-6	Burglary / Breaking & Entering	5670	
-7	Theft: Shoplifting	4284	
-8	Agg Assault	4092	
-9	Robbery	2859	
-10	Aggravated Assault	1888	
-11	Rape	1801	
-12	Theft: Pocket Picking	448	
-13	Theft: Auto Parts	231	
-14	Theft: from Building	221	
-15	Theft: Coin Op Machine	153	
-16	Murder	61	
-17	Homicide: Murder & Nonnegligent Manslaughter	32	
-18	Theft: Purse Snatching	7	
+Row	  primary_type	              frequency	
+1	  Theft	                          54515	
+2	  Theft: All Other Larceny	      13539	
+3	  Theft: BOV	                    10545	
+4	  Burglary	                      10098	
+5	  Auto Theft	                    6231	
+6	  Burglary / Breaking & Entering	5670	
+7	  Theft: Shoplifting	            4284	
+8	  Agg Assault	                    4092	
+9	  Robbery	                        2859	
+10	Aggravated Assault	            1888	
+11	Rape	                          1801	
+12	Theft: Pocket Picking	          448	
+13	Theft: Auto Parts	              231	
+14	Theft: from Building	          221	
+15	Theft: Coin Op Machine	        153	
+16	Murder	                        61	
+17	Homicide	                      32	
+18	Theft: Purse Snatching	        7	
 
 # 2 total number of incidences of crime
 
@@ -57,7 +57,7 @@ limit 1
 # result is 7 Theft: Purse Snatching
 
 
-#5 average unemployment from 2010 to 2018
+#5 average employment from 2010 to 2018
 
 SELECT avg(value)
 FROM `bigquery-public-data.bls.unemployment_cps`
@@ -76,12 +76,12 @@ order by employment_level desc
 limit 5
 
 # result is: 
-Row	year	employment_level	
-1	2018	152073.0	
-2	2019	150235.0	
-3	2017	149512.0	
-4	2016	147608.0	
-5	2015	145246.0	
+Row	  year	employment_level	
+1	    2018	  152073.0	
+2	    2019	  150235.0	
+3	    2017	  149512.0	
+4	    2016	  147608.0	
+5	    2015	  145246.0	
 
 
 #7 most commonly used payment methods for taxi rides
@@ -92,19 +92,19 @@ group by payment_type
 order by frequency desc
 
 # result is 
-Row	payment_type	frequency	
-1	Cash	67703399	
-2	Credit Card	44087311	
-3	No Charge	720341	
-4	Unknown	243626	
-5	Dispute	61094	
-6	Pcard	29700	
-7	Prcard	14164	
-8	Mobile	396	
-9	Way2ride	23	
+Row	  payment_type	frequency	
+1	    Cash	        67703399	
+2	    Credit Card	  44087311	
+3   	No Charge	    720341	
+4	    Unknown	      243626	
+5	    Dispute	      61094	
+6	    Pcard	        29700	
+7	    Prcard	      14164	
+8	    Mobile	      396	
+9	    Way2ride	    23	
 
 
-#8 taxi rides lasting for less than 5 minutes
+#8 number of taxi rides lasting for less than 5 minutes
 
 SELECT count(trip_seconds)
 FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
@@ -119,6 +119,7 @@ SELECT company, count(company) as number_of_trips, sum(fare) as fare
 FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
 group by company
 order by number_of_trips desc
+limit 10
 
 # result is
 Row	      company	                  number_of_trips	        fare	
