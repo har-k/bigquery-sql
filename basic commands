@@ -1,0 +1,146 @@
+#1 list crimes by most to least incidences
+
+SELECT primary_type, count(primary_type) as frequency
+FROM `bigquery-public-data.austin_crime.crime`
+group by primary_type
+order by frequency desc
+
+# result is
+
+Row	primary_type	frequency	
+1	Theft	54515	
+2	Theft: All Other Larceny	13539	
+3	Theft: BOV	10545	
+4	Burglary	10098	
+5	Auto Theft	6231	
+6	Burglary / Breaking & Entering	5670	
+7	Theft: Shoplifting	4284	
+8	Agg Assault	4092	
+9	Robbery	2859	
+10	Aggravated Assault	1888	
+11	Rape	1801	
+12	Theft: Pocket Picking	448	
+13	Theft: Auto Parts	231	
+14	Theft: from Building	221	
+15	Theft: Coin Op Machine	153	
+16	Murder	61	
+17	Homicide: Murder & Nonnegligent Manslaughter	32	
+18	Theft: Purse Snatching	7	
+
+# 2 total number of incidences of crime
+
+SELECT count(primary_type) as incidences
+FROM `bigquery-public-data.austin_crime.crime`
+
+# result is 116675
+
+
+#3 most committed crime
+
+SELECT count(primary_type) as frequency, primary_type
+FROM `bigquery-public-data.austin_crime.crime`
+group by primary_type
+order by frequency desc
+limit 1
+
+# result is 54515 Theft
+
+
+#4 least committed crime
+
+SELECT count(primary_type) as frequency, primary_type
+FROM `bigquery-public-data.austin_crime.crime`
+group by primary_type
+order by frequency
+limit 1
+
+# result is 7 Theft: Purse Snatching
+
+
+#5 average unemployment from 2010 to 2018
+
+SELECT avg(value)
+FROM `bigquery-public-data.bls.unemployment_cps`
+where year between 2010 and 2018 and series_title = "(Unadj) Employment Level - 20 yrs. & over"
+
+# result is: 142107.66013071898
+
+
+#6 years by most employment
+
+SELECT year, max(value) as employment_level
+FROM `bigquery-public-data.bls.unemployment_cps`
+where series_title = "(Unadj) Employment Level - 20 yrs. & over"
+group by year
+order by employment_level desc
+limit 5
+
+# result is: 
+Row	year	employment_level	
+1	2018	152073.0	
+2	2019	150235.0	
+3	2017	149512.0	
+4	2016	147608.0	
+5	2015	145246.0	
+
+
+#7 most commonly used payment methods for taxi rides
+
+SELECT payment_type, count(payment_type) as frequency
+FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
+group by payment_type
+order by frequency desc
+
+# result is 
+Row	payment_type	frequency	
+1	Cash	67703399	
+2	Credit Card	44087311	
+3	No Charge	720341	
+4	Unknown	243626	
+5	Dispute	61094	
+6	Pcard	29700	
+7	Prcard	14164	
+8	Mobile	396	
+9	Way2ride	23	
+
+
+#8 taxi rides lasting for less than 5 minutes
+
+SELECT count(trip_seconds)
+FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
+where trip_seconds between 0 and 300
+
+# result is 30460011
+
+
+#9 top 10 cab companies by number of trips and fare
+
+SELECT company, count(company) as number_of_trips, sum(fare) as fare
+FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
+group by company
+order by number_of_trips desc
+
+# result is
+Row	      company	                  number_of_trips	        fare	
+1	Taxi Affiliation Services	          32569932	        3.9314852262E10	
+2	Dispatch Taxi Affiliation	          10182943	        1.2036657548E10	
+3	Blue Ribbon Taxi Association Inc.	  7711437	          8.847731395E9	
+4	Choice Taxi Association	            6020703	          7.635119787E9	
+5	Chicago Elite Cab Corp.	            5264168	          8.768675274E9	
+6	Northwest Management LLC	          3691995	          4.324283617E9	
+7	KOAM Taxi Association	              1563230	          1.972604349E9	
+8	Top Cab Affiliation	                1033287	          1.330240461E9	
+9	Chicago Elite Cab Corp.	            1023109	          1.648364956E9	
+10	T.A.S. - Payment Only	            775641	          1.346404626E9	
+
+
+#10 average trip time and average fare
+
+SELECT avg(trip_seconds) as average_trip_time, avg(fare) as average_fare
+FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
+
+# result is
+Row	average_trip_time	  average_fare	
+1	  747.0295367280681	  1280.0860062723568	
+
+
