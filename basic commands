@@ -7,25 +7,26 @@ order by frequency desc
 
 # result is
 
-Row	  primary_type	              frequency	
-1	  Theft	                          54515	
-2	  Theft: All Other Larceny	      13539	
-3	  Theft: BOV	                    10545	
-4	  Burglary	                      10098	
-5	  Auto Theft	                    6231	
-6	  Burglary / Breaking & Entering	5670	
-7	  Theft: Shoplifting	            4284	
-8	  Agg Assault	                    4092	
-9	  Robbery	                        2859	
-10	Aggravated Assault	            1888	
-11	Rape	                          1801	
-12	Theft: Pocket Picking	          448	
-13	Theft: Auto Parts	              231	
-14	Theft: from Building	          221	
-15	Theft: Coin Op Machine	        153	
-16	Murder	                        61	
-17	Homicide	                      32	
-18	Theft: Purse Snatching	        7	
+Row	primary_type	frequency	
+1	Theft	54515	
+2	Theft: All Other Larceny	13539	
+3	Theft: BOV	10545	
+4	Burglary	10098	
+5	Auto Theft	6231	
+6	Burglary / Breaking & Entering	5670	
+7	Theft: Shoplifting	4284	
+8	Agg Assault	4092	
+9	Robbery	2859	
+10	Aggravated Assault	1888	
+11	Rape	1801	
+12	Theft: Pocket Picking	448	
+13	Theft: Auto Parts	231	
+14	Theft: from Building	221	
+15	Theft: Coin Op Machine	153	
+16	Murder	61	
+17	Homicide: Murder & Nonnegligent Manslaughter	32	
+18	Theft: Purse Snatching	7	
+	
 
 # 2 total number of incidences of crime
 
